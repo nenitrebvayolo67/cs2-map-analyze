@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mappio DIY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="mark" aria-hidden="true"></span>Mappio <span class="diy">DIY</span></div>
+  <form id="form" class="search" autocomplete="off">
+    <input id="url" type="url" placeholder="Vlož odkaz na FACEIT matchroom" aria-label="Odkaz na FACEIT matchroom" required>
+    <button id="go" type="submit">Analyzovat</button>
+  </form>
+  <div id="status" class="status" data-state="idle"><span class="dot"></span><span id="statusText">Připraveno</span></div>
+</header>
+
+<div id="setup" class="banner" hidden></div>
+
+<main id="app" hidden>
+  <section class="matchbar">
+    <div class="map-badge"><span class="lbl">Mapa</span><span id="mapName">—</span></div>
+    <div class="teams"><span id="myTeam">—</span><span class="vs">vs</span><span id="oppTeam" class="opp">—</span></div>
+    <div id="message" class="message"></div>
+    <button id="stepsToggle" class="ghost" type="button" aria-expanded="false">Časy kroků</button>
+  </section>
+  <section id="steps" class="steps" hidden></section>
+  <section id="warnings" class="warnings" hidden></section>
+
+  <section id="players" class="players" aria-label="Soupeři"></section>
+
+  <section class="workspace">
+    <div class="stage">
+      <div class="canvas-wrap" id="canvasWrap">
+        <canvas id="map" width="1024" height="1024" aria-label="Taktická mapa pozic"></canvas>
+        <div id="empty" class="empty" hidden></div>
+        <div id="tip" class="tip" hidden></div>
+      </div>
+      <div class="legend" id="legend"></div>
+    </div>
+
+    <aside class="panel">
+      <div class="group">
+        <div class="gl">Strana</div>
+        <div class="seg" data-key="side">
+          <button data-v="T" class="t">T</button><button data-v="CT" class="ct">CT</button><button data-v="ALL">Obě</button>
+        </div>
+      </div>
+      <div class="group">
+        <div class="gl">Čas od začátku kola</div>
+        <div class="chips" data-key="interval" id="intervals"></div>
+      </div>
+      <div class="group two">
+        <div>
+          <div class="gl">Zobrazení</div>
+          <div class="seg" data-key="mode"><button data-v="heat">Heatmapa</button><button data-v="dots">Body</button></div>
+        </div>
+        <div>
+          <div class="gl">Váha</div>
+          <div class="seg" data-key="weight" title="Jak se počítá četnost">
+            <button data-v="rounds">Kola</button><button data-v="matches">Zápasy</button><button data-v="time">Čas</button>
+          </div>
+        </div>
+      </div>
+      <div class="group">
+        <div class="gl">Ekonomika kola</div>
+        <div class="chips" data-key="econ">
+          <button data-v="all">Vše</button><button data-v="pistol">Pistolová</button><button data-v="eco">Eco</button>
+          <button data-v="force">Force</button><button data-v="full">Full-buy</button><button data-v="unknown">Neznámá</button>
+        </div>
+      </div>
+      <div class="group" id="levelGroup" hidden>
+        <div class="gl">Patro</div>
+        <div class="seg" data-key="level"><button data-v="0">Horní</button><button data-v="1">Spodní</button></div>
+      </div>
+
+      <div class="totals" id="totals"></div>
+      <p class="explain" id="explain"></p>
+
+      <div class="group">
+        <div class="gl">Nejčastější oblasti <span class="muted">(herní callouty)</span></div>
+        <table class="areas"><thead><tr><th>Oblast</th><th class="r" id="shareHead">Podíl</th><th class="r" title="Kola, ve kterých se hráč v oblasti objevil">Kol</th></tr></thead>
+          <tbody id="areas"></tbody></table>
+      </div>
+    </aside>
+  </section>
+
+  <section class="coverage">
+    <h2>Co bylo ověřeno</h2>
+    <div id="coverage" class="cov-grid"></div>
+    <details class="matchlist"><summary>Zápasy na mapě</summary><div id="matchList"></div></details>
+  </section>
+</main>
+
+<section id="intro" class="intro">
+  <h1>Kde soupeři obvykle stojí</h1>
+  <p>Vlož odkaz na matchroom. Aplikace pozná tvoje soupeře, počká na konec veta, projde jejich posledních 30 zápasů
+    a z dem z vybrané mapy ukáže jejich skutečné pozice.</p>
+</section>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

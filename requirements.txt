@@ -1,0 +1,4 @@
+demoparser2==0.42.0
+pandas>=2.2,<4
+numpy>=1.26
+zstandard>=0.22
