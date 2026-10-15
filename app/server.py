@@ -24,7 +24,7 @@ MAX_BODY = 16 * 1024
 
 def make_handler(analyzer: Analyzer, port_ref: dict):
     class Handler(BaseHTTPRequestHandler):
-        server_version = "MappioDIY"
+        server_version = "CS2MapAnalyze"
 
         def log_message(self, fmt, *args):  # tichý log, jen chyby
             if args and str(args[1] if len(args) > 1 else "").startswith(("4", "5")):
@@ -169,7 +169,7 @@ def main(open_browser: bool = True) -> None:
     httpd = ThreadingHTTPServer((settings.host, port), make_handler(analyzer, port_ref))
     httpd.daemon_threads = True
     url = f"http://127.0.0.1:{port}/"
-    print(f"Mappio DIY běží na {url}  (zavřením tohoto okna aplikaci ukončíš)")
+    print(f"CS2 Map Analyze běží na {url}  (zavřením tohoto okna aplikaci ukončíš)")
     if not settings.api_key:
         print("POZOR: v .env chybí FACEIT_API_KEY.")
     if not settings.download_token:

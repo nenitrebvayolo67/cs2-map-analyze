@@ -39,7 +39,7 @@ def download(url: str, dest: Path, max_bytes: int = MAX_COMPRESSED_BYTES,
     tmp = dest.with_name(dest.name + ".part")
     total = 0
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "mappio-diy"})
+        req = urllib.request.Request(url, headers={"User-Agent": "CS2-Map-Analyze"})
         with (opener or urllib.request.urlopen)(req, timeout=60) as r, tmp.open("wb") as fh:
             length = r.headers.get("Content-Length") if getattr(r, "headers", None) else None
             if length and length.isdigit() and int(length) > max_bytes:

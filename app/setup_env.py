@@ -43,7 +43,7 @@ def ask(prompt: str, current: str, secret: bool = False) -> str:
 def main() -> int:
     cur = _parse_env_file(ENV) or _parse_env_file(EXAMPLE)
     clean = lambda v: "" if v.upper().startswith("SEM_") else v  # noqa: E731
-    print("\n=== Nastavení Mappio DIY ===")
+    print("\n=== Nastavení CS2 Map Analyze ===")
     print("API klíč: https://developers.faceit.com -> App Studio -> tvoje aplikace -> API keys -> typ 'Server side'.")
     nick = ask("Tvoje FACEIT přezdívka", clean(cur.get("FACEIT_NICKNAME", "")))
     key = ask("FACEIT API klíč (Server side)", clean(cur.get("FACEIT_API_KEY", "")), secret=True)

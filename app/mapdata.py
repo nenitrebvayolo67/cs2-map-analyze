@@ -67,7 +67,7 @@ def parse_entry(name: str, entry: dict) -> tuple[float, float, float, tuple[floa
 
 
 def _download(url: str, dest: Path, opener=None) -> None:
-    req = urllib.request.Request(url, headers={"User-Agent": "mappio-diy"})
+    req = urllib.request.Request(url, headers={"User-Agent": "CS2-Map-Analyze"})
     tmp = dest.with_name(dest.name + ".part")
     dest.parent.mkdir(parents=True, exist_ok=True)
     total = 0
@@ -124,7 +124,7 @@ class MapData:
     def _version(self) -> str:
         cur = self.dir / "current.txt"
         try:
-            req = urllib.request.Request(LATEST_API, headers={"User-Agent": "mappio-diy",
+            req = urllib.request.Request(LATEST_API, headers={"User-Agent": "CS2-Map-Analyze",
                                                               "Accept": "application/vnd.github+json"})
             with (self.opener or urllib.request.urlopen)(req, timeout=20) as r:
                 tag = str(json.loads(r.read().decode()).get("tag_name") or "").strip()

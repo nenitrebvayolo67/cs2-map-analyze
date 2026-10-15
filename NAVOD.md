@@ -1,14 +1,20 @@
-# Mappio DIY – návod
+# CS2 Map Analyze – návod
 
 Lokální aplikace pro Windows: vložíš odkaz na FACEIT matchroom a uvidíš, kde tvoji soupeři
 skutečně stáli v jejich posledních zápasech na vybrané mapě. Bez předplatného, vše běží u tebe v PC.
 
 ## Instalace (jednou, ~5 minut)
 
-1. Rozbal ZIP do libovolné složky (např. `Dokumenty\mappio-diy`).
+1. Rozbal ZIP do libovolné složky (např. `Dokumenty\cs2-map-analyze`).
 2. Získej **FACEIT API klíč** (zdarma):
-   developers.faceit.com → přihlásit → **App Studio** → *Create app* → v aplikaci záložka **API keys**
-   → *Create* → typ **Server side** → zkopíruj klíč.
+   developers.faceit.com → přihlásit → **App Studio** → *Create app*. Vyplň:
+   - **App Name:** `CS2 Map Analyze`
+   - **Organization:** `Rylop`
+   - **Description:** `Personal CS2 analytics tool for analyzing opponents' historical positioning using FACEIT match demos.`
+   - **API Key Name:** `CS2-Map-Analyze-Server`
+
+   Potom v aplikaci otevři záložku **API keys** → *Create* → typ **Server side** a zkopíruj vygenerovaný klíč.
+   Skutečný API klíč ukládej pouze do místního souboru `.env`, nikdy do projektu ani do Gitu.
 3. Dvojklik na **`SETUP.bat`**.
    - Najde Python (když chybí, zkusí ho nainstalovat přes `winget`).
    - Vytvoří vlastní prostředí a nainstaluje knihovny.

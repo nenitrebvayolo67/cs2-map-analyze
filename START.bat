@@ -3,7 +3,7 @@ setlocal
 cd /d "%~dp0"
 chcp 65001 >nul
 set PYTHONUTF8=1
-title Mappio DIY
+title CS2 Map Analyze
 
 if not exist ".venv\Scripts\python.exe" (
   echo Aplikace jeste neni nainstalovana - spoustim SETUP.bat...
@@ -15,7 +15,7 @@ if not exist ".env" (
   ".venv\Scripts\python.exe" -m app.setup_env
 )
 
-echo Spoustim Mappio DIY... prohlizec se otevre sam.
+echo Spoustim CS2 Map Analyze... prohlizec se otevre sam.
 echo Toto okno nech otevrene. Zavrenim aplikaci ukoncis.
 echo.
 ".venv\Scripts\python.exe" -m app.server

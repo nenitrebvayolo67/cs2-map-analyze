@@ -1,4 +1,4 @@
-# Stav ověření (Mappio DIY 2.0)
+# Stav ověření (CS2 Map Analyze 2.0)
 
 Legenda: **Impl.** = implementováno · **Test** = ověřeno automatickým testem · **Demo** = ověřeno na skutečném CS2 demu ·
 **Živé API** = ověřeno proti živému FACEIT API · **Blokováno** = nelze ověřit bez externího přístupu

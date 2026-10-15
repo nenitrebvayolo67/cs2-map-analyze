@@ -1,6 +1,8 @@
-# Mappio DIY
+# CS2 Map Analyze
 
 Windowsová aplikace pro analýzu předchozích zápasů soupeřů z FACEIT. Zobrazuje jejich pozice na vybrané mapě; aplikace běží lokálně na vašem počítači.
+
+Zdrojový kód: [github.com/nenitrebvayolo67/cs2-map-analyze](https://github.com/nenitrebvayolo67/cs2-map-analyze).
 
 ## Instalace a použití
 
